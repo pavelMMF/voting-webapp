@@ -1,6 +1,7 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { cn } from "./ui";
+import { useAuth } from "../auth/AuthProvider";
 
 const nav = [
   { to: "/", label: "Главная" },
@@ -8,6 +9,10 @@ const nav = [
   { to: "/exams", label: "Экзамены" },
   { to: "/profile", label: "Профиль" },
 ];
+
+function shortAddr(a: string) {
+  return `${a.slice(0, 6)}…${a.slice(-4)}`;
+}
 
 export function AppShell({
   children,
@@ -18,6 +23,25 @@ export function AppShell({
   title: string;
   subtitle?: string;
 }) {
+  const { isAuthed, user, logout } = useAuth();
+  const navTo = useNavigate();
+
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState<string | null>(null);
+
+  async function onLogout() {
+    try {
+      setErr(null);
+      setBusy(true);
+      await logout();
+      navTo("/login");
+    } catch (e: any) {
+      setErr(e?.message ?? String(e));
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#05060a] text-white">
       {/* subtle grid background */}
@@ -29,10 +53,8 @@ export function AppShell({
           <Link to="/" className="flex items-center gap-3">
             <div className="h-9 w-9 rounded-xl bg-gradient-to-r from-cyan-400 to-fuchsia-500" />
             <div>
-              <div className="text-sm font-semibold tracking-tight">
-                Voting Console
-              </div>
-              <div className="text-xs text-white/55">LAN / private</div>
+              <div className="text-sm font-semibold tracking-tight">Voting Console</div>
+              <div className="text-xs text-white/55">custodial • LAN/private</div>
             </div>
           </Link>
 
@@ -58,11 +80,48 @@ export function AppShell({
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-200" />
               Live
             </span>
-            <button className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/90 hover:bg-white/8 transition">
-              Подписать / Wallet
-            </button>
+
+            {!isAuthed ? (
+              <>
+                <Link
+                  to="/login"
+                  className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/90 hover:bg-white/8 transition"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/90 hover:bg-white/8 transition"
+                >
+                  Register
+                </Link>
+              </>
+            ) : (
+              <>
+                <span className="hidden sm:inline text-xs text-white/60">
+                  {user?.email}
+                  {user?.walletAddress ? ` • ${shortAddr(user.walletAddress)}` : ""}
+                  {user?.role ? ` • ${user.role}` : ""}
+                </span>
+                <button
+                  disabled={busy}
+                  onClick={onLogout}
+                  className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/90 hover:bg-white/8 transition disabled:opacity-50"
+                >
+                  {busy ? "…" : "Logout"}
+                </button>
+              </>
+            )}
           </div>
         </div>
+
+        {err ? (
+          <div className="mx-auto max-w-6xl px-4 pb-3">
+            <div className="rounded-xl border border-amber-300/20 bg-amber-400/10 px-3 py-2 text-xs text-amber-200">
+              {err}
+            </div>
+          </div>
+        ) : null}
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-8">
@@ -74,8 +133,9 @@ export function AppShell({
       </main>
 
       <footer className="mx-auto max-w-6xl px-4 pb-10 pt-6 text-xs text-white/45">
-        Snapshot-friendly UI • audit-first • no dark patterns
+        audit-first • custodial wallets • no dark patterns
       </footer>
     </div>
   );
 }
+

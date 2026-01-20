@@ -1,0 +1,278 @@
+{
+  "users": [
+    {
+      "id": "c7534a955b2c8ff876d1087be9fddb33",
+      "email": "lolipoptyan0@gmail.com",
+      "passwordHash": "$2b$12$k4YMgAnaFY/aOAExspHf2OhKHL4drgB1uYCcBeH6srmUzl1lj3mBy",
+      "verified": true,
+      "verifyToken": null,
+      "role": "admin",
+      "walletAddress": "0x404dB35f4f48015B24B0Dd0b4a3D3abAb6F504bc",
+      "encryptedPrivateKey": "2FgGmkj2EczR0SwEbcjb3vj3TOqzQihINN6bbUpVMBvGjXs4f0RDYYDvQgNbk556K8ncwFGUKYZuwI2+ZS/YGRQge2R6+a/37trk9Td7NMD9s/UCs46Ee+U469P6mw==",
+      "createdAt": "2026-01-17T22:39:45.330Z",
+      "levels": {
+        "1": {
+          "level": 3,
+          "confirmedAt": "2026-01-18T15:17:17.502Z"
+        }
+      }
+    }
+  ],
+  "proposals": [
+    {
+      "proposalId": "87250232187141331499278149044279062085153700667723343243404876017219715759783",
+      "topicId": 1,
+      "title": "Website: change roadmap",
+      "description": "Website: change roadmap\n\nProposal demo for topic.",
+      "createdTxHash": "0x3f4420409d56605b661a8c3b037d1538eab83fa486adb1a5b88662de6846648a",
+      "createdAt": "2026-01-18T15:36:02.149Z",
+      "createdBlock": 9090
+    },
+    {
+      "proposalId": "19314473846265063225339677003529108627459735661258794546040171042144101989056",
+      "topicId": 1,
+      "title": "Website: change roadmуцap",
+      "description": "Website: change roadmуцap\n\nProposal demo for topic.",
+      "createdTxHash": "0x77153dedd1088daaf4d95134f6eba5f296f6c699a7c998ab3c9d354d93d94153",
+      "createdAt": "2026-01-18T17:13:51.122Z",
+      "createdBlock": 11585
+    },
+    {
+      "proposalId": "72399030061211038271376299990998667492484428139807149112297117077349464604974",
+      "topicId": 2,
+      "title": "Website: change roadmap",
+      "description": "Website: change roadmap\n\nProposal demo for topic.",
+      "createdTxHash": "0x110b16d0d8a992c277718ff664c7b7ddef6704dfe835b79fe791f51811cb9eb9",
+      "createdAt": "2026-01-19T08:28:19.472Z",
+      "createdBlock": 16868
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "name": "Website development",
+      "policy": {
+        "q": {
+          "0": 0.1,
+          "1": 0.15,
+          "2": 0.2,
+          "3": 0.55
+        },
+        "f": {
+          "1": 1.2,
+          "2": 2,
+          "3": 4
+        },
+        "delta": {
+          "1": 0.5,
+          "2": 0.5,
+          "3": 0.5
+        },
+        "T_years": 5,
+        "eduPoolFrac": 0.05
+      },
+      "createdAt": "2026-01-18T11:00:41.741Z"
+    },
+    {
+      "id": 2,
+      "name": "Goida Knowledge",
+      "policy": {
+        "q": {
+          "0": 0.1,
+          "1": 0.15,
+          "2": 0.2,
+          "3": 0.55
+        },
+        "f": {
+          "1": 1.2,
+          "2": 2,
+          "3": 4
+        },
+        "delta": {
+          "1": 0.5,
+          "2": 0.5,
+          "3": 0.5
+        },
+        "T_years": 5,
+        "eduPoolFrac": 0.05
+      },
+      "createdAt": "2026-01-18T15:49:47.359Z"
+    }
+  ],
+  "exams": [
+    {
+      "id": "webdev-l1",
+      "topicId": 1,
+      "title": "Website development — Level 1",
+      "passPercent": 80,
+      "levelOnPass": 1,
+      "cards": [
+        {
+          "id": "c1",
+          "type": "choice",
+          "title": "HTTP",
+          "text": "Что такое HTTP?",
+          "media": [],
+          "options": [
+            "Язык программирования",
+            "Протокол передачи данных",
+            "База данных",
+            "ОС"
+          ],
+          "correct": 1,
+          "points": 1
+        },
+        {
+          "id": "c2",
+          "type": "choice",
+          "title": "GET vs POST",
+          "text": "Какая разница между GET и POST?",
+          "media": [],
+          "options": [
+            "POST быстрее",
+            "GET обычно для чтения, POST для отправки данных",
+            "Разницы нет",
+            "GET только в мобильных"
+          ],
+          "correct": 1,
+          "points": 1
+        },
+        {
+          "id": "c3",
+          "type": "text",
+          "title": "DNS",
+          "text": "Введи коротко: что делает DNS?",
+          "media": [],
+          "accepted": [
+            "переводит домен в ip",
+            "разрешает домен в ip",
+            "сопоставляет домен и ip",
+            "перевод домена в ip"
+          ],
+          "points": 1
+        },
+        {
+          "id": "c4",
+          "type": "manual",
+          "title": "Архитектура",
+          "text": "Опиши своими словами, как бы ты организовал(а) структуру фронтенда и API для небольшой системы голосований.",
+          "media": [],
+          "rubric": "Оцени: ясность, безопасность, разделение ответственности. (Ручная проверка админом)",
+          "points": 1
+        }
+      ],
+      "createdAt": "2026-01-18T11:00:41.742Z",
+      "updatedAt": "2026-01-18T11:21:29.784Z"
+    },
+    {
+      "id": "exam-6c69639855d5",
+      "topicId": 1,
+      "title": "Goida SVO",
+      "passPercent": 80,
+      "levelOnPass": 1,
+      "cards": [],
+      "createdAt": "2026-01-18T15:18:09.670Z",
+      "updatedAt": "2026-01-18T15:18:09.670Z"
+    },
+    {
+      "id": "exam-085a8b8ae080",
+      "topicId": 1,
+      "title": "New exam",
+      "passPercent": 80,
+      "levelOnPass": 1,
+      "cards": [],
+      "createdAt": "2026-01-18T15:22:13.288Z",
+      "updatedAt": "2026-01-18T15:22:13.288Z"
+    },
+    {
+      "id": "exam-6680deed2536",
+      "topicId": 1,
+      "title": "New exam",
+      "passPercent": 80,
+      "levelOnPass": 1,
+      "cards": [],
+      "createdAt": "2026-01-18T15:57:37.804Z",
+      "updatedAt": "2026-01-18T15:57:37.804Z"
+    },
+    {
+      "id": "exam-b309cea15cdd",
+      "topicId": 1,
+      "title": "New exam",
+      "passPercent": 80,
+      "levelOnPass": 1,
+      "cards": [],
+      "createdAt": "2026-01-19T08:29:59.702Z",
+      "updatedAt": "2026-01-19T08:29:59.702Z"
+    }
+  ],
+  "examAttempts": [
+    {
+      "id": "2e82b468ef8cbd197865498e1916d8ea",
+      "userId": "c7534a955b2c8ff876d1087be9fddb33",
+      "examId": "webdev-l1",
+      "topicId": 1,
+      "submittedAt": "2026-01-18T11:20:45.634Z",
+      "status": "reviewed",
+      "auto": {
+        "correct": 0,
+        "total": 3,
+        "percent": 0
+      },
+      "manual": {
+        "cards": [
+          {
+            "id": "c4",
+            "points": 1
+          }
+        ],
+        "decisions": {
+          "c4": false
+        },
+        "correct": 0,
+        "total": 1
+      },
+      "answers": {
+        "c1": 0,
+        "c2": 2,
+        "c3": "goida",
+        "c4": "dgfgfgd"
+      },
+      "passed": false,
+      "finalPercent": 0,
+      "assignedLevel": null,
+      "reviewedAt": "2026-01-19T08:30:21.818Z",
+      "reviewedBy": "lolipoptyan0@gmail.com"
+    },
+    {
+      "id": "ee0a4afe7edec3441ec2ef9f1f5a8e87",
+      "userId": "c7534a955b2c8ff876d1087be9fddb33",
+      "examId": "webdev-l1",
+      "topicId": 1,
+      "submittedAt": "2026-01-18T14:57:52.112Z",
+      "status": "pending_manual",
+      "auto": {
+        "correct": 0,
+        "total": 3,
+        "percent": 0
+      },
+      "manual": {
+        "cards": [
+          {
+            "id": "c4",
+            "points": 1
+          }
+        ],
+        "decisions": {}
+      },
+      "answers": {
+        "c1": 0,
+        "c2": 2,
+        "c3": "ыв",
+        "c4": "выывмыв"
+      },
+      "passed": false,
+      "finalPercent": null,
+      "assignedLevel": null
+    }
+  ]
+}
